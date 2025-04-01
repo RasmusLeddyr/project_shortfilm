@@ -30,6 +30,10 @@ p {
   text-align: center;
 }
 
+nav {
+  background-color: blueviolet;
+  height: 32px;
+}
 nav ul {
   display: flex;
   gap: 16px;
