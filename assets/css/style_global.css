@@ -1,0 +1,36 @@
+:root {
+  --col_main: rgb(47, 31, 31);
+  --col_text: rgb(255, 255, 191);
+}
+*,
+*::before,
+*::after {
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+}
+
+h1 {
+  color: var(--col_text);
+  font-size: 32px;
+}
+h2 {
+  color: var(--col_text);
+  font-size: 24px;
+}
+p {
+  color: var(--col_text);
+  font-size: 16px;
+}
+
+.button {
+  background-color: red;
+  color: black;
+  padding: 16px;
+  text-align: center;
+}
+
+nav ul {
+  display: flex;
+  gap: 16px;
+}

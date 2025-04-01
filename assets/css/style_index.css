@@ -1,18 +1,18 @@
-*,
-*::before,
-*::after {
-  margin: 0;
+body {
+  background-color: var(--col_main);
 }
 
-section {
-  display: grid;
+section article {
+  justify-self: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+  padding: 32px;
+  width: 100%;
 }
-section iframe {
-  grid-area: vid;
-}
-section :nth-child(2) {
-}
-section :nth-child(3) {
-}
-section :nth-child(4) {
+section article aside {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 }
