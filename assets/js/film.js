@@ -130,7 +130,7 @@ if (films[filmKey]) {
 
   // Go through table and create HTML
   film.tasks.forEach((task) => {
-    // Create section for the task
+    // Create section for task
     const taskSection = document.createElement("div");
     taskSection.classList.add("task-section");
 

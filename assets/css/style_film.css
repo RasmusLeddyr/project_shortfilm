@@ -1,3 +1,9 @@
 body {
   background-color: var(--col_main);
 }
+
+#film-container {
+  justify-self: center;
+  display: flex;
+  gap: 32px;
+}
