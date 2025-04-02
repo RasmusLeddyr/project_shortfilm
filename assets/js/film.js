@@ -1,4 +1,4 @@
-// Filmdata gemt i et objekt med opgave-kategorier
+// Film data
 const films = {
   ztriwer: {
     title: "Ztriwer",
@@ -100,42 +100,45 @@ const films = {
   },
 };
 
-// Hent film-navnet fra URL’en
+// Fetch film name from html URL
 const params = new URLSearchParams(window.location.search);
 const filmKey = params.get("film");
 
 // Find HTML-elementer
-const titleElement = document.getElementById("film-title");
-const container = document.getElementById("film-container");
+const filmTitle = document.getElementById("film-title");
+const filmContainer = document.getElementById("film-container");
 
-// Hvis filmen findes, vis den
+// If film exists
 if (films[filmKey]) {
   const film = films[filmKey];
 
-  // Sæt titel
-  titleElement.textContent = film.title;
+  // Set title
+  filmTitle.textContent = film.title;
 
-  // Opret YouTube iframe
+  // Create YouTube iframe
   const iframe = document.createElement("iframe");
   iframe.src = film.youtube;
   iframe.width = "560";
   iframe.height = "315";
   iframe.allowFullscreen = true;
+  filmContainer.appendChild(iframe);
 
-  // Tilføj video til containeren
-  container.appendChild(iframe);
+  // Create container for tasks
+  const taskContainer = document.createElement("div");
+  taskContainer.classList.add("task-container");
+  filmContainer.appendChild(taskContainer);
 
-  // Gennemgå opgave-kategorierne og opret HTML for hver
+  // Go through table and create HTML
   film.tasks.forEach((task) => {
-    // Opret sektion til opgaven
+    // Create section for the task
     const taskSection = document.createElement("div");
     taskSection.classList.add("task-section");
 
-    // Opgavetitel (kan senere blive en knap)
+    // Task title
     const taskTitle = document.createElement("h3");
     taskTitle.textContent = task.title;
 
-    // Liste med spørgsmål
+    // List with questions
     const taskList = document.createElement("ul");
     task.questions.forEach((question) => {
       const li = document.createElement("li");
@@ -143,14 +146,12 @@ if (films[filmKey]) {
       taskList.appendChild(li);
     });
 
-    // Tilføj titel og spørgsmål til opgavesektionen
+    // Append items to the correct parents
     taskSection.appendChild(taskTitle);
     taskSection.appendChild(taskList);
-
-    // Tilføj opgavesektionen til containeren
-    container.appendChild(taskSection);
+    taskContainer.appendChild(taskSection);
   });
 } else {
-  titleElement.textContent = "Film ikke fundet";
-  container.innerHTML = "<p>Den valgte film eksisterer ikke.</p>";
+  filmTitle.textContent = "Film ikke fundet";
+  filmContainer.innerHTML = "<p>Den valgte film eksisterer ikke.</p>";
 }
