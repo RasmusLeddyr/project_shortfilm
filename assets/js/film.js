@@ -136,7 +136,7 @@ if (films[filmKey]) {
     taskSection.classList.add("task-section");
 
     // Task title
-    const taskTitle = document.createElement("h3");
+    const taskTitle = document.createElement("h2");
     taskTitle.textContent = task.title;
 
     // List with questions

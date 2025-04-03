@@ -2,17 +2,16 @@ body {
   background-color: var(--col_main);
 }
 
-section article {
-  justify-self: center;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 32px;
-  padding: 32px;
-  width: 100%;
+h1 {
+  margin-bottom: 16px;
 }
-section article aside {
+
+ul {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 16px;
+}
+
+ul li a:hover {
+  color: white;
 }

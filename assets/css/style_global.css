@@ -1,6 +1,8 @@
 :root {
   --col_main: rgb(47, 31, 31);
   --col_text: rgb(255, 255, 191);
+  --col_btn: rgb(255, 191, 0);
+  --col_btn-hover: rgb(255, 255, 0);
 }
 *,
 *::before,
@@ -23,10 +25,15 @@ p {
 }
 
 .button {
-  background-color: red;
+  background-color: var(--col_btn);
   color: black;
-  padding: 16px;
   text-align: center;
+  border-radius: 1em;
+  padding: 0.25em;
+  transition: all 0.25s ease-in-out;
+}
+.button:hover {
+  background-color: var(--col_btn-hover);
 }
 
 nav {

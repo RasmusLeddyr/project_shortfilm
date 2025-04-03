@@ -2,6 +2,22 @@ body {
   background-color: var(--col_main);
 }
 
+main {
+  padding-top: 16px;
+}
+.button {
+  margin-left: 16px;
+  font-size: 24px;
+}
+
+#film-title {
+  width: 100%;
+  text-align: center;
+  font-weight: bolder;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
 #film-container {
   justify-self: center;
   display: flex;
@@ -11,15 +27,10 @@ body {
   width: 100%;
 }
 
-#film-title {
-  width: 100%;
-  text-align: center;
-}
-
 .task-section {
   margin-bottom: 32px;
 }
-.task-section h3 {
+.task-section h2 {
   margin-bottom: 8px;
 }
 .task-section ul {
