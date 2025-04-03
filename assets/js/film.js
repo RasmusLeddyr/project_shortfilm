@@ -49,7 +49,8 @@ const films = {
           "Hvem er Opal og Claire? Hvordan adskiller de sig fra hinanden?",
           "Hvem er forældrene fra starten af filmen, og hvilken rolle spiller de?",
           "Hvordan relaterer alle karaktererne til hinanden?",
-          "Analyser kropssprog, stemmeføring og sange. Hvordan understøtter disse elementer karakterernes personlighed og relationer?",
+          "Analyser kropssprog, stemmeføring og sange.",
+          "Hvordan understøtter disse elementer karakterernes personlighed og relationer?",
           "Skriv en kort beskrivelse af hver karakter baseret på dine observationer.",
         ],
       },
@@ -125,7 +126,7 @@ if (films[filmKey]) {
 
   // Create container for tasks
   const taskContainer = document.createElement("div");
-  taskContainer.classList.add("task-container");
+  taskContainer.id = "task-container";
   filmContainer.appendChild(taskContainer);
 
   // Go through table and create HTML

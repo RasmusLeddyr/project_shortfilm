@@ -5,5 +5,25 @@ body {
 #film-container {
   justify-self: center;
   display: flex;
-  gap: 32px;
+  flex-wrap: wrap;
+  gap: 64px;
+  justify-content: center;
+  width: 100%;
+}
+
+#film-title {
+  width: 100%;
+  text-align: center;
+}
+
+.task-section {
+  margin-bottom: 32px;
+}
+.task-section h3 {
+  margin-bottom: 8px;
+}
+.task-section ul {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
