@@ -3,37 +3,55 @@ body {
 }
 
 main {
-  padding-top: 16px;
+  padding-top: 24px;
 }
 .button {
   margin-left: 16px;
   font-size: 24px;
 }
 
-#film-title {
+#film-container {
   width: 100%;
+  justify-self: center;
+  display: grid;
+  gap: 4px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 0fr 1fr;
+  grid-template-areas:
+    "title none"
+    "film tasks";
+}
+
+#film-title {
   text-align: center;
   font-weight: bolder;
-  margin-top: 16px;
+  grid-area: title;
+  align-self: flex-end;
+  justify-self: center;
   margin-bottom: 16px;
 }
-
-#film-container {
+#film-container iframe {
+  grid-area: film;
   justify-self: center;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 64px;
-  justify-content: center;
-  width: 100%;
+}
+#task-container {
+  grid-area: tasks;
 }
 
-.task-section {
-  margin-bottom: 32px;
+.task {
+  margin-bottom: 16px;
 }
-.task-section h2 {
+.task summary {
+  font-size: 32px;
+  margin-bottom: 0px;
+}
+.task summary:hover {
+  text-decoration: underline;
+}
+.task[open] summary {
   margin-bottom: 8px;
 }
-.task-section ul {
+.task ul {
   display: flex;
   flex-direction: column;
   gap: 4px;

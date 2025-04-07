@@ -101,11 +101,11 @@ const films = {
   },
 };
 
-// Fetch film name from html URL
+// Get film key from html URL
 const params = new URLSearchParams(window.location.search);
 const filmKey = params.get("film");
 
-// Find HTML-elementer
+// Reference film containers
 const filmTitle = document.getElementById("film-title");
 const filmContainer = document.getElementById("film-container");
 
@@ -129,17 +129,18 @@ if (films[filmKey]) {
   taskContainer.id = "task-container";
   filmContainer.appendChild(taskContainer);
 
-  // Go through table and create HTML
+  // Iterate through tasks and create HTML elements
   film.tasks.forEach((task) => {
-    // Create section for task
-    const taskSection = document.createElement("div");
-    taskSection.classList.add("task-section");
+    // Create task
+    const taskElement = document.createElement("details");
+    taskElement.classList.add("task");
+    taskElement.name = "film-task";
 
-    // Task title
-    const taskTitle = document.createElement("h2");
+    // Create title
+    const taskTitle = document.createElement("summary");
     taskTitle.textContent = task.title;
 
-    // List with questions
+    // Create questions
     const taskList = document.createElement("ul");
     task.questions.forEach((question) => {
       const li = document.createElement("li");
@@ -148,11 +149,15 @@ if (films[filmKey]) {
     });
 
     // Append items to the correct parents
-    taskSection.appendChild(taskTitle);
-    taskSection.appendChild(taskList);
-    taskContainer.appendChild(taskSection);
+    taskElement.appendChild(taskTitle);
+    taskElement.appendChild(taskList);
+    taskContainer.appendChild(taskElement);
   });
+  // If film does not exist
 } else {
-  filmTitle.textContent = "Film ikke fundet";
-  filmContainer.innerHTML = "<p>Den valgte film eksisterer ikke.</p>";
+  // Set title and create p tag in container
+  filmTitle.textContent = "";
+  const errorText = document.createElement("h2");
+  errorText.textContent = "Ups! Den valgte film eksisterer ikke.";
+  filmContainer.parentNode.appendChild(errorText);
 }
