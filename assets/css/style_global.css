@@ -40,10 +40,16 @@ p {
 }
 
 nav {
-  background-color: blueviolet;
-  height: 32px;
+  background-color: rgba(127, 0, 0, 0.25);
+  outline: 16px solid rgba(255, 127, 0, 0.25);
+  height: 64px;
+  padding: 0px 32px;
+  margin-left: auto;
 }
 nav ul {
+  height: 100%;
   display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 16px;
 }
