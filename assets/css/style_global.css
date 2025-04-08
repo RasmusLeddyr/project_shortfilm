@@ -70,7 +70,7 @@ nav ul .return {
   background-color: rgba(0, 0, 0, 0);
 
   transition-timing-function: ease-in-out;
-  transition-duration: 0.5s;
+  transition-duration: 1s;
   transition-property: background-color;
 }
 .popup-container.popup-active {
@@ -87,7 +87,7 @@ nav ul .return {
   left: -100%;
 
   transition-timing-function: ease-in-out;
-  transition-duration: 2s;
+  transition-duration: 4s;
   transition-property: left;
 }
 .popup-content.popup-active {
