@@ -6,6 +6,7 @@
     <title>Kortfilmsportal</title>
     <link rel="stylesheet" href="assets/css/style_global.css" />
     <link rel="stylesheet" href="assets/css/style_index.css" />
+    <script src="assets/js/app.js" defer></script>
   </head>
 
   <body>
@@ -14,18 +15,26 @@
         <li><a class="button" href="">KONTAKT</a></li>
         <li><a class="button" href="">OM OS</a></li>
         <li><a class="button" href="">KNAP</a></li>
-        <li><a class="button" href="">KNAP4</a></li>
-        <li><a class="button" href="">nej</a></li>
+        <li><a class="button" href="">KNAP IGEN</a></li>
+        <li><a class="button" href="">Ja, jeg er også en knap.</a></li>
       </ul>
     </nav>
     <main>
       <h1>Undervisningsfilm</h1>
+
+      <!-- FILM LIST -->
       <ul id="film-list">
-        <!-- FILM LIST -->
         <li><a href="film.html?film=ztriwer">Ztriwer</a></li>
         <li><a href="film.html?film=doubleking">Double King</a></li>
         <li><a href="film.html?film=opal">Opal</a></li>
       </ul>
     </main>
+    <button class="button" onclick="showPopup()">Åben popup</button>
+    <!-- POPUP AD -->
+    <section class="popup-container" onclick="disablePopup()">
+      <article class="popup-content">
+        <img src="assets/img/WalterAd.png" alt="" />
+      </article>
+    </section>
   </body>
 </html>
