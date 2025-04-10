@@ -45,6 +45,12 @@ nav {
   height: 64px;
   padding: 0px 32px;
   margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+nav .return {
+  margin-right: auto;
+  padding: 16px;
 }
 nav ul {
   height: 100%;
@@ -53,7 +59,10 @@ nav ul {
   justify-content: center;
   gap: 16px;
 }
-nav ul .return {
+nav ul:first-child {
+  margin-left: auto;
+}
+nav ul:last-child {
   margin-right: auto;
 }
 
