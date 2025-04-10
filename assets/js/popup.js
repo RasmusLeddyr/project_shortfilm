@@ -102,6 +102,6 @@ function randomPopup() {
   const option = randomPopupOptions[ranNum];
   console.log("Will not play: " + lastPopups);
 
-  popupImage.src = "assets/img/popups/" + option[0];
-  popupAudio.src = "assets/aud/popups/" + option[1];
+  popupImage.src = "assets/img/" + option[0];
+  popupAudio.src = "assets/aud/" + option[1];
 }
