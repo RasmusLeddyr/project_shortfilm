@@ -23,14 +23,16 @@ for (let i = 0; i < popupButtons.length; i++) {
 const active = "popup-active";
 let canRun = true;
 let isActive = false;
+let flipPopup = false;
 function clickEvent(clickTarget) {
   if (canRun) {
     canRun = false;
-
     // IF POPUP IS ACTIVE: DEACTIVATE
     if (isActive) {
       isActive = false;
-      popupImage.style.transform = "scaleX(-1)";
+      if (flipPopup) {
+        popupImage.style.transform = "scaleX(-1)";
+      }
 
       popupContent.classList.remove(active);
       popupContainer.removeEventListener("click", clickEvent);
@@ -94,6 +96,11 @@ function randomPopup() {
   const filteredKeys = keys.filter((key) => !lastPopups.includes(key));
 
   const ranNum = filteredKeys[Math.floor(Math.random() * filteredKeys.length)];
+  if (ranNum == 4 || ranNum == 7) {
+    flipPopup = true;
+  } else {
+    flipPopup = false;
+  }
   lastPopups.unshift(ranNum);
   lastPopups = lastPopups.slice(
     0,
@@ -101,7 +108,6 @@ function randomPopup() {
   );
   const option = randomPopupOptions[ranNum];
   console.log("Will not play: " + lastPopups);
-
   popupImage.src = "assets/img/" + option[0];
   popupAudio.src = "assets/aud/" + option[1];
 }
