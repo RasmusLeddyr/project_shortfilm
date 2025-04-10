@@ -34,24 +34,6 @@ function clickEvent(clickTarget) {
       popupContent.classList.remove(active);
       popupContainer.removeEventListener("click", clickEvent);
       fadeAudioOut(popupAudio, 4, 64);
-
-      function fadeAudioOut(audio, duration, steps) {
-        duration *= 1000;
-        const stepTime = duration / steps;
-        let currentStep = 0;
-        const fadeInterval = setInterval(() => {
-          currentStep += 1;
-          const volume = Math.max(0, 1 - currentStep / steps);
-          audio.volume = volume;
-          if (volume <= 0) {
-            clearInterval(fadeInterval);
-            audio.pause();
-            audio.currentTime = 0;
-            popupContainer.style.zIndex = -16;
-            canRun = true;
-          }
-        }, stepTime);
-      }
     }
     // IF POPUP IS INACTIVE: ACTIVATE
     else {
@@ -62,15 +44,7 @@ function clickEvent(clickTarget) {
       popupContainer.style.zIndex = 16;
       popupContainer.addEventListener("click", clickEvent);
 
-      const ranNum = Math.floor(Math.random() * 2) + 1;
-      if (ranNum == 1) {
-        popupImage.src = "assets/img/Popup_WalterWhite.jpg";
-        popupAudio.src = "assets/aud/Popup_WalterWhite.wav";
-      } else {
-        popupImage.src = "assets/img/Popup_SaulGoodman.png";
-        popupAudio.src = "assets/aud/Popup_SaulGoodman.wav";
-      }
-      //what the heck. There is no audio.
+      randomPopup();
       popupAudio.volume = 1;
       popupAudio.play();
 
@@ -82,3 +56,40 @@ function clickEvent(clickTarget) {
 }
 
 // FADE OUT AUDIO FUNCTION
+function fadeAudioOut(audio, duration, steps) {
+  duration *= 1000;
+  const stepTime = duration / steps;
+  let currentStep = 0;
+  const fadeInterval = setInterval(() => {
+    currentStep += 1;
+    const volume = Math.max(0, 1 - currentStep / steps);
+    audio.volume = volume;
+    if (volume <= 0) {
+      clearInterval(fadeInterval);
+      audio.pause();
+      audio.currentTime = 0;
+      popupContainer.style.zIndex = -16;
+      canRun = true;
+    }
+  }, stepTime);
+}
+
+// RANDOM POPUP FUNCTION
+let lastPopups = [];
+const randomPopupOptions = {
+  1: ["Popup_WalterWhite.jpg", "Popup_WalterWhite.wav"],
+  2: ["Popup_SaulGoodman.png", "Popup_SaulGoodman.wav"],
+  3: ["Popup_GMan.jpg", "Popup_GMan.wav"],
+};
+function randomPopup() {
+  const keys = Object.keys(randomPopupOptions).map(Number);
+  const filteredKeys = keys.filter((key) => !lastPopups.includes(key));
+
+  const ranNum = filteredKeys[Math.floor(Math.random() * filteredKeys.length)];
+  lastPopups.unshift(ranNum);
+  lastPopups = lastPopups.slice(0, 2);
+  const option = randomPopupOptions[ranNum];
+
+  popupImage.src = "assets/img/" + option[0];
+  popupAudio.src = "assets/aud/" + option[1];
+}

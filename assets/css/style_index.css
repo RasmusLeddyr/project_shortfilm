@@ -12,6 +12,9 @@ main {
 h1 {
   margin-bottom: 16px;
 }
+h2 {
+  margin-bottom: 32px;
+}
 
 #film-list {
   display: flex;
@@ -19,7 +22,10 @@ h1 {
   gap: 16px;
   text-align: center;
 }
-
-#film-list li a:hover {
+#film-list li a {
+  font-weight: bolder;
   text-decoration: underline;
+}
+#film-list li a:hover {
+  color: white;
 }

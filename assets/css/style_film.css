@@ -40,9 +40,11 @@ main {
 .task summary {
   font-size: 32px;
   margin-bottom: 0px;
+  font-weight: bolder;
+  text-decoration: underline;
 }
 .task summary:hover {
-  text-decoration: underline;
+  color: white;
 }
 .task[open] summary {
   margin-bottom: 8px;
