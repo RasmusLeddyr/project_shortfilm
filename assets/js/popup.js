@@ -30,14 +30,19 @@ function clickEvent(clickTarget) {
     // IF POPUP IS ACTIVE: DEACTIVATE
     if (isActive) {
       isActive = false;
-      popupContainer.classList.remove(active);
+      popupImage.style.transform = "scaleX(-1)";
+
       popupContent.classList.remove(active);
       popupContainer.removeEventListener("click", clickEvent);
+      setTimeout(() => {
+        popupContainer.classList.remove(active);
+      }, 2000);
       fadeAudioOut(popupAudio, 4, 64);
     }
     // IF POPUP IS INACTIVE: ACTIVATE
     else {
       isActive = true;
+      popupImage.style.transform = "scaleX(1)";
 
       popupContainer.classList.add(active);
       popupContent.classList.add(active);
@@ -47,7 +52,6 @@ function clickEvent(clickTarget) {
       randomPopup();
       popupAudio.volume = 1;
       popupAudio.play();
-
       setTimeout(function () {
         canRun = true;
       }, 4000);
@@ -80,6 +84,10 @@ const randomPopupOptions = {
   1: ["Popup_WalterWhite.jpg", "Popup_WalterWhite.wav"],
   2: ["Popup_SaulGoodman.png", "Popup_SaulGoodman.wav"],
   3: ["Popup_GMan.jpg", "Popup_GMan.wav"],
+  4: ["Popup_NyanCat.gif", "Popup_NyanCat.wav"],
+  5: ["Popup_PBJ.gif", "Popup_PBJ.wav"],
+  6: ["Popup_Herobrine.png", "Popup_Herobrine.wav"],
+  7: ["Popup_Sonic.png", "Popup_Sonic.wav"],
 };
 function randomPopup() {
   const keys = Object.keys(randomPopupOptions).map(Number);
@@ -87,9 +95,13 @@ function randomPopup() {
 
   const ranNum = filteredKeys[Math.floor(Math.random() * filteredKeys.length)];
   lastPopups.unshift(ranNum);
-  lastPopups = lastPopups.slice(0, 2);
+  lastPopups = lastPopups.slice(
+    0,
+    Math.floor(Object.keys(randomPopupOptions).length / 2)
+  );
   const option = randomPopupOptions[ranNum];
+  console.log("Will not play: " + lastPopups);
 
-  popupImage.src = "assets/img/" + option[0];
-  popupAudio.src = "assets/aud/" + option[1];
+  popupImage.src = "assets/img/popups/" + option[0];
+  popupAudio.src = "assets/aud/popups/" + option[1];
 }
